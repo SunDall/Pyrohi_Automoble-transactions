@@ -1,28 +1,17 @@
 <H1>About our project</H1>
 
-[![Build Status][build-button]][build]
-[![Coverage Status][codecov-button]][codecov]
-[![Latest Version][mdversion-button]][md-pypi]
-[![Python Versions][pyversion-button]][md-pypi]
-[![BSD License][bsdlicense-button]][bsdlicense]
-[![Code of Conduct][codeofconduct-button]][Code of Conduct]
-
-[codecov]: https://codecov.io/gh/Python-Markdown/markdown
-[mdversion-button]: https://img.shields.io/pypi/v/Markdown.svg
-
-
-<p>If you want to see the best experience of our project, you need to open terminal and install these modules:</p>
+If you want to see the best experience of our project, you need to open terminal and install these modules:
 ```bash
 pip install pandas
 pip install matplotlib
 ```
-<p>They will be imported in the main source. See lines below. That is why we can't calculate something later.</p>
+They will be imported in the main source. See lines below. That is why we can't calculate something later.
 ```python
 # Imports
 import pandas as pd
 import matplotlib.pyplot as plot
 ```
-<p>In next lines we described all the events and got each of them points of suspiciousness of activity.</p>
+In next lines we described all the events and got each of them points of suspiciousness of activity.
 ```python
 # Array of events
 events = {"Transaction Refund": 1,
@@ -46,17 +35,17 @@ events = {"Transaction Refund": 1,
 users = []
 info = []
 ```
-<p>Then we are reading dataset with pandas module and display it.</p>
+Then we are reading dataset with pandas module and display it.
 ```python
 # Reading data
 data = pd.read_csv("/content/int20h-ds-test-dataset.csv", delimiter = ",")
 data
 ```
-<p>In the next block of code we break off our pandas object: we cut off only two columns from the visual 
+In the next block of code we break off our pandas object: we cut off only two columns from the visual 
   table and iterate them in cycle. While such activity is in the progress, Python check each person ID.
 If the person is available in `users` array, the program add corelation points to him. If not - we append
   a new value to arrays `users` and `info` (about these users). The next module is optional.
-  It depends on user`s needs to launch them.</p>
+  It depends on user`s needs to launch them.
 ```python
 # Detecting of suspicious users
 for row in (data.loc[:, ["userid", "event_name"]]).itertuples():
@@ -84,13 +73,13 @@ df = pd.DataFrame(
 df
 #df.to_csv('final.csv')
 ```
-<p>Now we are creating a plot</p>
+Now we are creating a plot
 ```python
 # Creating a plot for visualizing info
 plot.plot(users, info)
 plot.show()
 ```
-<p>And display summary of concluded work.</p>
+And display summary of concluded work.
 ```python
 print(f"Найбільш підозріла активність спостерігається від корситувача із ID {users[info.index(max(info))]}. Він набрав {max(info)} балів підозрілості")
 ```
